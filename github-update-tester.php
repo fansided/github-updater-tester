@@ -4,7 +4,7 @@
  * Plugin URI: https://github.com/fansided/github-updater-tester
  * Description: Nothing fancy, but lots of releases going to be on this plugin!
  * Author: sethcarstens
- * Version: 0.0.3
+ * Version: 0.0.4
  * Author URI: http://sethcarstens.com/wordpress
  * License: GPL V3
  * Text Domain: ghu
