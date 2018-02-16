@@ -34,7 +34,7 @@ jobs:
       - persist_to_workspace:
           root: dist
           paths:
-            - dist/**
+            - dist
       # - run:
       #     name: Debug 2
       #     command: cd /home/circleci/tmp/dist && ls
