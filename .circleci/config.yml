@@ -36,10 +36,10 @@ jobs:
           command: pwd
       - run:
           name: Debug 2
-          command: ls
+          command: echo $SSH_USER && echo $SSH_HOST && echo $PLUGIN_PATH
       - run:
           name: Deployment
-          command: ./deploy.sh $SSH_USER $SSH_HOST $PLUGIN_PATH
+          command: bash deploy.sh $SSH_USER $SSH_HOST $PLUGIN_PATH
 
 workflows:
   version: 2
