@@ -45,7 +45,9 @@ jobs:
     steps:
       - checkout
       - attach_workspace:
-          at: dist
+          at: tmp/dist
+      - run: mv -f tmp/dist .
+      - run: rm -rf tmp
       - run:
           name: Debug 1
           command: cd dist && ls
