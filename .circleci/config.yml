@@ -34,7 +34,7 @@ jobs:
           root: /home/circleci/tmp/dist
           # Must be relative path from root
           paths:
-            - dist/*
+            - $CIRCLE_WORKING_DIRECTORY/dist/*
       - run:
           name: Debug 2
           command: cd /home/circleci/tmp/dist && ls
