@@ -29,6 +29,7 @@ jobs:
       - run:
           name: Debug 1
           command: pwd && ls
+      - run: mkdir -p tmp
       - run: mv -f dist tmp/dist
       - persist_to_workspace:
           root: tmp
