@@ -42,13 +42,13 @@ jobs:
     docker:
       - image: circleci/node:8.9
     steps:
-      - checkout
       - run:
           name: Debug 1
           command: pwd && ls
+      - checkout
       - run:
           name: Debug 2
-          command: echo $SSH_USER && echo $SSH_HOST && echo $PLUGIN_PATH
+          command: pwd && ls
       - run:
           name: Deployment
           command: bash deploy.sh $SSH_USER $SSH_HOST $PLUGIN_PATH
