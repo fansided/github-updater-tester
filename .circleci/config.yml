@@ -29,7 +29,6 @@ jobs:
       - run:
           name: Debug 1
           command: pwd && ls
-      - run: mkdir -p tmp/dist
       - run: mv -f dist tmp/dist
       - persist_to_workspace:
           root: tmp
@@ -48,7 +47,7 @@ jobs:
           at: dist
       - run:
           name: Debug 1
-          command: ls
+          command: cd dist && ls
       - run:
           name: Deployment
           command: bash deploy.sh $SSH_USER $SSH_HOST $PLUGIN_PATH
