@@ -31,8 +31,14 @@ jobs:
       - image: circleci/node:8.9
     steps:
       - run:
-          name: LS
-          command: cd $CIRCLE_WORKING_DIRECTORY ls
+          name: Debug 1
+          command: pwd
+      - run:
+          name: Debug 2
+          command: ls
+      - run:
+          name: Debug 3
+          command: cd ~ && ls
       - run:
           name: Deployment
           command: bash $CIRCLE_WORKING_DIRECTORY/deploy.sh $SSH_USER $SSH_HOST $PLUGIN_PATH
