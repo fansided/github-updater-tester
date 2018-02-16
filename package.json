@@ -1,0 +1,27 @@
+{
+  "name": "github-updater-tester",
+  "version": "1.0.0",
+  "description": "Featureless plugin intended to test the update functions within github updater plugin",
+  "main": "index.js",
+  "scripts": {
+    "dev": "NODE_ENV=development webpack -d --watch",
+    "build": "NODE_ENV=production webpack -p"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fansided/github-updater-tester.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/fansided/github-updater-tester/issues"
+  },
+  "homepage": "https://github.com/fansided/github-updater-tester#readme",
+  "devDependencies": {
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.2",
+    "babel-preset-env": "^1.6.1",
+    "babel-preset-stage-2": "^6.24.1",
+    "webpack": "^3.11.0"
+  }
+}
