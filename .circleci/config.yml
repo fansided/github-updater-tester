@@ -32,7 +32,7 @@ jobs:
       - run: mkdir -p tmp/dist
       - run: mv -f dist tmp/dist
       - persist_to_workspace:
-          root: tmp/dist
+          root: tmp
           paths:
             - dist/**
       - run:
@@ -45,7 +45,7 @@ jobs:
     steps:
       - checkout
       - attach_workspace:
-          at: tmp/dist
+          at: dist
       - run:
           name: Debug 1
           command: ls
