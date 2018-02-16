@@ -10,6 +10,6 @@ sudo apt install rsync
 rsync -az --force --delete --progress --exclude 'node_modules' --exclude '.git/' ./ $SSH_USER@$SSH_HOST:$PLUGIN_PATH-temp
 
 echo "Transfer complete. Deploying files to production..."
-ssh $SSH_USER@$SSH_HOST "mv -f $PLUGIN_PATH-temp $PLUGIN_PATH"
+ssh $SSH_USER@$SSH_HOST "rm -rf $PLUGIN_PATH && mv -f $PLUGIN_PATH-temp $PLUGIN_PATH"
 
 echo "Deploy complete!"
