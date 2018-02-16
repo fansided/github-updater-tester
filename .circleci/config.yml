@@ -26,6 +26,14 @@ jobs:
       - run:
           name: NPM Build
           command: npm run build
+      # Persist the specified paths (workspace/echo-output) into the workspace for use in downstream job. 
+      - persist_to_workspace:
+          # Must be an absolute path, or relative path from working_directory. This is a directory on the container which is 
+          # taken to be the root directory of the workspace.
+          root: /tmp/dist
+          # Must be relative path from root
+          paths:
+            - dist/*
   deploy:
     docker:
       - image: circleci/node:8.9
@@ -33,7 +41,7 @@ jobs:
       - checkout
       - run:
           name: Debug 1
-          command: pwd
+          command: pwd && ls
       - run:
           name: Debug 2
           command: echo $SSH_USER && echo $SSH_HOST && echo $PLUGIN_PATH
@@ -51,15 +59,15 @@ workflows:
               ignore: master
   release:
     jobs:
-      # - build:
-      #     filters:
-      #       tags:
-      #         only: /.*/
-      #       branches:
-      #         ignore: /.*/
+      - build:
+          filters:
+            tags:
+              only: /.*/
+            branches:
+              ignore: /.*/
       - deploy:
-          # requires:
-          #   - build
+          requires:
+            - build
           filters:
             tags:
               only: /.*/
