@@ -29,15 +29,15 @@ jobs:
       - run:
           name: Debug 1
           command: pwd && ls
-      # - run: mkdir -p /home/circleci/tmp
-      # - run: mv -f dist /home/circleci/tmp/dist
+      - run: mkdir -p tmp/dist
+      - run: mv -f dist tmp/dist
       - persist_to_workspace:
-          root: dist
+          root: tmp/dist
           paths:
-            - dist
-      # - run:
-      #     name: Debug 2
-      #     command: cd /home/circleci/tmp/dist && ls
+            - dist/**
+      - run:
+          name: Debug 2
+          command: cd tmp/dist && ls
   deploy:
     working_directory: ~/project
     docker:
@@ -45,7 +45,7 @@ jobs:
     steps:
       - checkout
       - attach_workspace:
-          at: dist
+          at: tmp/dist
       - run:
           name: Debug 1
           command: ls
