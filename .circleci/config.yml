@@ -35,16 +35,10 @@ jobs:
           command: pwd
       - run:
           name: Debug 2
-          command: ls
-      - run:
-          name: Debug 3
-          command: cd ~ && ls
-      - run:
-          name: Debug 4
-          command: cd ~/project && ls
+          command: cd .. && ls
       - run:
           name: Deployment
-          command: bash $CIRCLE_WORKING_DIRECTORY/deploy.sh $SSH_USER $SSH_HOST $PLUGIN_PATH
+          command: bash ../deploy.sh $SSH_USER $SSH_HOST $PLUGIN_PATH
 
 workflows:
   version: 2
@@ -56,15 +50,15 @@ workflows:
               ignore: master
   release:
     jobs:
-      - build:
-          filters:
-            tags:
-              only: /.*/
-            branches:
-              ignore: /.*/
+      # - build:
+      #     filters:
+      #       tags:
+      #         only: /.*/
+      #       branches:
+      #         ignore: /.*/
       - deploy:
-          requires:
-            - build
+          # requires:
+          #   - build
           filters:
             tags:
               only: /.*/
