@@ -40,6 +40,9 @@ jobs:
           name: Debug 3
           command: cd ~ && ls
       - run:
+          name: Debug 4
+          command: cd ~/project && ls
+      - run:
           name: Deployment
           command: bash $CIRCLE_WORKING_DIRECTORY/deploy.sh $SSH_USER $SSH_HOST $PLUGIN_PATH
 
