@@ -46,10 +46,13 @@ jobs:
       - checkout
       - attach_workspace:
           at: tmp/dist
-      - run: mv -f tmp/dist .
+       - run:
+          name: Debug 1
+          command: cd tmp/dist && ls
+      - run: mv -f tmp/dist/* dist
       - run: rm -rf tmp
       - run:
-          name: Debug 1
+          name: Debug 2
           command: cd dist && ls
       - run:
           name: Deployment
