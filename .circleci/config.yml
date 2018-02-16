@@ -6,7 +6,6 @@ version: 2
 
 jobs:
   build:
-    working_directory: ~/repo
     docker:
       - image: circleci/node:8.9
     steps:
@@ -30,9 +29,10 @@ jobs:
     docker:
       - image: circleci/node:8.9
     steps:
+      - run: ls
       - run:
           name: Deployment
-          command: ls && sh deploy.sh $SSH_USER $SSH_HOST $PLUGIN_PATH
+          command: sh deploy.sh $SSH_USER $SSH_HOST $PLUGIN_PATH
 
 workflows:
   version: 2
