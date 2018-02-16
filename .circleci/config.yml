@@ -48,9 +48,6 @@ jobs:
           at: /home/circleci/tmp
       - run:
           name: Debug 1
-          command: pwd && ls
-      - run:
-          name: Debug 2
           command: cd /home/circleci/tmp && ls
       - run:
           name: Deployment
