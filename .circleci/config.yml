@@ -32,10 +32,10 @@ jobs:
     steps:
       - run:
           name: LS
-          command: cd ~/project && ls
+          command: cd $CIRCLE_WORKING_DIRECTORY ls
       - run:
           name: Deployment
-          command: ./deploy.sh $SSH_USER $SSH_HOST $PLUGIN_PATH
+          command: bash $CIRCLE_WORKING_DIRECTORY/deploy.sh $SSH_USER $SSH_HOST $PLUGIN_PATH
 
 workflows:
   version: 2
