@@ -47,12 +47,10 @@ workflows:
             tags:
               only: /.*/
             branches:
-              only: master
+              ignore: /.*/
       - deploy:
           requires:
             - build
           filters:
             tags:
-              only: /.*/
-            branches:
-              only: master
+              ignore: /.*/
