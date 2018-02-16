@@ -26,18 +26,12 @@ jobs:
       - run:
           name: NPM Build
           command: npm run build
-      - run:
-          name: Debug 1
-          command: pwd && ls
       - run: mkdir -p tmp
       - run: mv -f dist tmp/dist
       - persist_to_workspace:
           root: tmp
           paths:
             - dist/**
-      - run:
-          name: Debug 2
-          command: cd tmp/dist && ls
   deploy:
     working_directory: ~/project
     docker:
@@ -46,14 +40,8 @@ jobs:
       - checkout
       - attach_workspace:
           at: tmp/dist
-      - run:
-          name: Debug 1
-          command: cd tmp/dist && ls
       - run: mv -f tmp/dist/* dist
       - run: rm -rf tmp
-      - run:
-          name: Debug 2
-          command: cd dist && ls
       - run:
           name: Deployment
           command: bash deploy.sh $SSH_USER $SSH_HOST $PLUGIN_PATH
