@@ -38,6 +38,7 @@ jobs:
           paths:
             - dist/*
   deploy:
+    working_directory: ~/project
     docker:
       - image: circleci/node:8.9
     steps:
