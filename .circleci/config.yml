@@ -33,22 +33,25 @@ jobs:
       - persist_to_workspace:
           # Must be an absolute path, or relative path from working_directory. This is a directory on the container which is 
           # taken to be the root directory of the workspace.
-          root: ~/project
+          root: /tmp/dist
           # Must be relative path from root
           paths:
             - dist/*
+      - run:
+          name: Debug 2
+          command: cd /tmp/dist && ls
   deploy:
     working_directory: ~/project
     docker:
       - image: circleci/node:8.9
     steps:
+      - checkout
       - run:
           name: Debug 1
           command: pwd && ls
-      - checkout
       - run:
           name: Debug 2
-          command: pwd && ls
+          command: cd /tmp/dist && ls
       - run:
           name: Deployment
           command: bash deploy.sh $SSH_USER $SSH_HOST $PLUGIN_PATH
