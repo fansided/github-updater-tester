@@ -30,11 +30,8 @@ jobs:
       - image: circleci/node:8.9
     steps:
       - run:
-          name: LS
-          command: ls
-      - run:
           name: Deployment
-          command: bash ./deploy.sh $SSH_USER $SSH_HOST $PLUGIN_PATH
+          command: bash deploy.sh $SSH_USER $SSH_HOST $PLUGIN_PATH
 
 workflows:
   version: 2
