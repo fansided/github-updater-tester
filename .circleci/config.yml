@@ -29,12 +29,13 @@ jobs:
       - run:
           name: Debug 1
           command: pwd && ls
-      - run: mkdir -p /home/circleci/tmp/dist
+      - run: mkdir -p /home/circleci/tmp
+      - run: mv -f dist /home/circleci/tmp/dist
       - persist_to_workspace:
-          root: /home/circleci/tmp/dist
+          root: /home/circleci/tmp
           # Must be relative path from root
           paths:
-            - $CIRCLE_WORKING_DIRECTORY/dist/*
+            - dist/**
       - run:
           name: Debug 2
           command: cd /home/circleci/tmp/dist && ls
