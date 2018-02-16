@@ -33,7 +33,6 @@ jobs:
       - run: mv -f dist /home/circleci/tmp/dist
       - persist_to_workspace:
           root: /home/circleci/tmp
-          # Must be relative path from root
           paths:
             - dist/**
       - run:
@@ -50,7 +49,7 @@ jobs:
           command: pwd && ls
       - run:
           name: Debug 2
-          command: cd /home/circleci/tmp/dist && ls
+          command: cd /home/circleci/tmp && ls
       - run:
           name: Deployment
           command: bash deploy.sh $SSH_USER $SSH_HOST $PLUGIN_PATH
