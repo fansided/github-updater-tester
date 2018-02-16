@@ -30,7 +30,9 @@ jobs:
     docker:
       - image: circleci/node:8.9
     steps:
-      - run: echo "Deployment"
+      - run:
+          name: Deployment
+          command: ./deploy.sh $SSH_USER $SSH_HOST $PLUGIN_PATH
 
 workflows:
   version: 2
