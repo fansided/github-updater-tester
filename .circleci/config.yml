@@ -44,7 +44,7 @@ jobs:
       - run: rm -rf tmp
       - run:
           name: Deployment
-          command: bash deploy.sh $SSH_USER $SSH_HOST $PLUGIN_NAME $PLUGINS_PATH $PLUGINS_BACKUP_PATH
+          command: bash .circleci/deploy.sh $SSH_USER $SSH_HOST $PLUGIN_NAME $PLUGINS_PATH $PLUGINS_BACKUP_PATH
 
 workflows:
   version: 2

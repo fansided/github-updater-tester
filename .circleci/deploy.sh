@@ -37,20 +37,20 @@ ssh -o StrictHostKeyChecking=no $SSH_USER@$SSH_HOST 'exit'
 
 # Install rsync if not availible
 if ! [ -x "$(command -v rsync)" ]; then
-	echo "Installing rsync..."
+	echo ">> Installing rsync..."
 	sudo apt install rsync
-	echo "Rsync install successful!"
+	echo ">> Rsync install successful!"
 fi
 
-echo "Transferring files to temp directory on server..."
+echo ">> Transferring files to temp directory on server..."
 rsync -az --force --delete --progress --exclude 'node_modules' --exclude '.git/' ./ $SSH_USER@$SSH_HOST:$PRODUCTION_PLUGIN_PATH-temp
-echo "Transfer complete."
+echo ">> Transfer complete."
 
-echo "Backing up pervious version of plugin..."
+echo ">> Backing up pervious version of plugin..."
 ssh -o StrictHostKeyChecking=no $SSH_USER@$SSH_HOST "rm -rf $BACKUP_PLUGIN_PATH &&
 cp -r $PRODUCTION_PLUGIN_PATH $BACKUP_PLUGIN_PATH"
-echo "Backup complete."
+echo ">> Backup complete."
 
-echo "Deploying files to production..."
+echo ">> Deploying files to production..."
 ssh -o StrictHostKeyChecking=no $SSH_USER@$SSH_HOST "rm -rf $PRODUCTION_PLUGIN_PATH && mv -f $PRODUCTION_PLUGIN_PATH-temp $PRODUCTION_PLUGIN_PATH"
-echo "Deploy complete!"
+echo ">> Deploy complete!"
