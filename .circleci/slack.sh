@@ -26,7 +26,7 @@ PAYLOAD='{
 	  "author_name": "fansided - '$AUTHOR_NAME'",
 	  "author_link": "'$AUTHOR_LINK'",
 	  "author_icon": "'$AUTHOR_ICON'",
-	  "title": "'$REPO_NAME' version '$TAG'",
+	  "title": "Released '$REPO_NAME' version '$TAG'",
 	  "title_link": "https://example.com",
 	  "text": "'$RELEASE_NOTES'",
 	  "footer": "Pagely Production Deployment",
