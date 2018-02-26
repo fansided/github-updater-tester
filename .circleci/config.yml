@@ -45,6 +45,9 @@ jobs:
       - run:
           name: Deployment
           command: bash .circleci/deploy.sh $SSH_USER $SSH_HOST $PLUGIN_NAME $PLUGINS_PATH $PLUGINS_BACKUP_PATH
+      - run:
+          name: Slack Notification
+          command: bash .circleci/slack.sh $CIRCLE_PROJECT_USERNAME $CIRCLE_REPOSITORY_URL $CIRCLE_TAG $CIRCLE_USERNAME 'https://github.com/stephengreer08' 'https://avatars1.githubusercontent.com/u/14283134?s=460&v=4' 'release notes' $NEW_RELIC_ACCOUNT_ID $NEW_RELIC_APPLICATION_ID $SLACK_WEBHOOK
 
 workflows:
   version: 2
