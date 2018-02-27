@@ -14,6 +14,8 @@ NEW_RELIC_ACCOUNT_ID=$7
 NEW_RELIC_APPLICATION_ID=$8
 SLACK_WEBHOOK=$9
 
+echo $RELEASE_NOTES
+
 PAYLOAD='{
   "channel": "#fansided-releases",
   "username": "Circle CI Deployment",
