@@ -49,6 +49,9 @@ jobs:
       - run:
           name: Slack Notification
           command: bash .circleci/slack.sh
+      - run:
+          name: New Relic Notification
+          command: bash .circleci/new-relic.sh
 
 workflows:
   version: 2
