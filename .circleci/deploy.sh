@@ -1,20 +1,5 @@
 #!/bin/bash
 
-# Ex. client_circleci
-SSH_USER=$1
-
-# Ex. example.com
-SSH_HOST=$2
-
-# Ex. my-custom-plugin
-PLUGIN_NAME=$3
-
-# Ex. /home/sites/my-website/wp-content/plugins/
-PLUGINS_PATH=$4
-
-# Ex. /home/sites/my-website/wp-content/plugins-backup/
-PLUGINS_BACKUP_PATH=$5
-
 PRODUCTION_PLUGIN_PATH=$PLUGINS_PATH$PLUGIN_NAME
 BACKUP_PLUGIN_PATH=$PLUGINS_BACKUP_PATH$PLUGIN_NAME
 
