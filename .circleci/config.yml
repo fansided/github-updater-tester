@@ -47,6 +47,9 @@ jobs:
           name: Deployment
           command: bash .circleci/deploy.sh
       - run:
+          name: Slack Notification
+          command: bash .circleci/slack.sh
+      - run:
           name: New Relic Notification
           command: bash .circleci/new-relic.sh
 

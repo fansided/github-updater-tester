@@ -32,8 +32,6 @@ PAYLOAD='{
   }
 }'
 
-echo $PAYLOAD
-
 curl -X POST \
   $NEW_RELIC_WEBHOOK \
   -H 'cache-control: no-cache' \
