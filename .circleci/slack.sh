@@ -12,7 +12,7 @@ RELEASE_NOTES=$(git log --format="%s" -n 1)
 
 PAYLOAD='{
   "channel": "#fansided-releases",
-  "username": "Circle CI Deployment",
+  "username": "CircleCi Deployment",
   "icon_emoji": ":circleci:",
   "link_names": 1,
   "attachments": [
