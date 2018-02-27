@@ -10,14 +10,12 @@ AUTHOR_LINK="https://github.com/$CIRCLE_USERNAME"
 AUTHOR_ICON="https://github.com/$CIRCLE_USERNAME.png"
 RELEASE_NOTES=$(git log --format="%s" -n 1)
 
-echo $AUTHOR_NAME
-echo $AUTHOR_LINK
-echo $AUTHOR_ICON
+echo $REPO_URL
 
 PAYLOAD='{
   "channel": "#fansided-releases",
   "username": "Circle CI Deployment",
-  "icon_emoji": ":github:",
+  "icon_emoji": ":circleci:",
   "link_names": 1,
   "attachments": [
 	{
