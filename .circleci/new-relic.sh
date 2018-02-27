@@ -28,7 +28,7 @@ PAYLOAD='{
 	"revision": "'$REPO_NAME' v'$TAG'",
 	"changelog": "'$REPO_URL'",
 	"description": "'$RELEASE_NOTES'",
-	"user": "'$AUTHOR_LINK'",
+	"user": "'$AUTHOR_LINK'"
   }
 }'
 
