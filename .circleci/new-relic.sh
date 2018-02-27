@@ -43,11 +43,11 @@ echo 'curl -X POST \
   -H "cache-control: no-cache" \
   -H "content-type: application/json" \
   -H "x-api-key: '$NEW_RELIC_API_KEY'" \
-  -d "$PAYLOAD"'
+  -d "'$PAYLOAD'"'
 
-# curl -X POST \
-#   $NEW_RELIC_WEBHOOK \
-#   -H "cache-control: no-cache" \
-#   -H "content-type: application/json" \
-#   -H "x-api-key: '$NEW_RELIC_API_KEY'" \
-#   -d "$PAYLOAD"
+curl -X POST \
+  $NEW_RELIC_WEBHOOK \
+  -H "cache-control: no-cache" \
+  -H "content-type: application/json" \
+  -H "x-api-key: '$NEW_RELIC_API_KEY'" \
+  -d "'$PAYLOAD'"
