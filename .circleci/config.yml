@@ -42,7 +42,6 @@ jobs:
           at: tmp/dist
       - run: mv -f tmp/dist/* dist
       - run: rm -rf tmp
-      - run: echo $GIT_COMMIT_DESC
       - run:
           name: Deployment
           command: bash .circleci/deploy.sh
