@@ -25,7 +25,7 @@ TAG=$CIRCLE_TAG
 AUTHOR_NAME=$CIRCLE_USERNAME
 AUTHOR_LINK="https://github.com/$CIRCLE_USERNAME"
 AUTHOR_ICON="https://github.com/$CIRCLE_USERNAME.png"
-RELEASE_NOTES=$(git log --format="%s" -n 1)
+RELEASE_NOTES=$(git log --format="%B" -n 1)
 
 PAYLOAD='{
   "channel": "#fansided-releases",
