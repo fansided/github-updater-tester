@@ -35,7 +35,7 @@ jobs:
   deploy:
     working_directory: ~/project
     environment:
-      - GIT_COMMIT_DESC: git log --format=oneline -n 1 $CIRCLE_SHA1
+      GIT_COMMIT_DESC: git log --format=oneline -n 1 $CIRCLE_SHA1
     docker:
       - image: circleci/node:8.9
     steps:
