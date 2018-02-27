@@ -1,8 +1,5 @@
 #!/bin/bash
 
-PRODUCTION_PLUGIN_PATH=$PLUGINS_PATH$PLUGIN_NAME
-BACKUP_PLUGIN_PATH=$PLUGINS_BACKUP_PATH$PLUGIN_NAME
-
 # Check that required variables are all set correctly
 VARIABLES_SET() {
 	[ -z "$SSH_USER" ] && echo "SSH_USER variable is not add set correctly" && exit 0
@@ -17,6 +14,9 @@ VARIABLES_SET() {
 }
 
 VARIABLES_SET
+
+PRODUCTION_PLUGIN_PATH=$PLUGINS_PATH$PLUGIN_NAME
+BACKUP_PLUGIN_PATH=$PLUGINS_BACKUP_PATH$PLUGIN_NAME
 
 ssh -o StrictHostKeyChecking=no $SSH_USER@$SSH_HOST 'exit'
 

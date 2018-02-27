@@ -1,6 +1,23 @@
 #!/bin/bash
 
-# Ex. bash .circleci/slack.sh
+# Check that required variables are all set correctly
+VARIABLES_SET() {
+	[ -z "$CIRCLE_PROJECT_USERNAME" ] && echo "CIRCLE_PROJECT_USERNAME variable is not add set correctly" && exit 0
+
+	[ -z "$CIRCLE_PROJECT_REPONAME" ] && echo "CIRCLE_PROJECT_REPONAME variable is not add set correctly" && exit 0
+
+	[ -z "$CIRCLE_TAG" ] && echo "CIRCLE_TAG variable is not add set correctly" && exit 0
+
+	[ -z "$CIRCLE_USERNAME" ] && echo "CIRCLE_USERNAME variable is not add set correctly" && exit 0
+
+	[ -z "$NEW_RELIC_ACCOUNT_ID" ] && echo "NEW_RELIC_ACCOUNT_ID variable is not add set correctly" && exit 0
+
+	[ -z "$NEW_RELIC_APPLICATION_ID" ] && echo "NEW_RELIC_APPLICATION_ID variable is not add set correctly" && exit 0
+
+	[ -z "$SLACK_WEBHOOK" ] && echo "SLACK_WEBHOOK variable is not add set correctly" && exit 0
+}
+
+VARIABLES_SET
 
 REPO_NAME=$CIRCLE_PROJECT_USERNAME'/'$CIRCLE_PROJECT_REPONAME
 REPO_URL="https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME"
