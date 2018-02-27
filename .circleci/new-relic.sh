@@ -32,9 +32,22 @@ PAYLOAD='{
   }
 }'
 
-curl -X POST \
+echo $NEW_RELIC_WEBHOOK
+
+echo $NEW_RELIC_API_KEY
+
+echo $PAYLOAD
+
+echo 'curl -X POST \
   $NEW_RELIC_WEBHOOK \
   -H "cache-control: no-cache" \
   -H "content-type: application/json" \
   -H "x-api-key: '$NEW_RELIC_API_KEY'" \
-  -d "$PAYLOAD"
+  -d "$PAYLOAD"'
+
+# curl -X POST \
+#   $NEW_RELIC_WEBHOOK \
+#   -H "cache-control: no-cache" \
+#   -H "content-type: application/json" \
+#   -H "x-api-key: '$NEW_RELIC_API_KEY'" \
+#   -d "$PAYLOAD"
