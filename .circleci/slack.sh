@@ -10,11 +10,9 @@ AUTHOR_NAME=$4
 AUTHOR_LINK="https//github.com/'$CIRCLE_PROJECT_USERNAME'"
 AUTHOR_ICON=$5
 RELEASE_NOTES=$(git log --format="%s" -n 1)
-NEW_RELIC_ACCOUNT_ID=$7
-NEW_RELIC_APPLICATION_ID=$8
-SLACK_WEBHOOK=$9
-
-echo $RELEASE_NOTES
+NEW_RELIC_ACCOUNT_ID=$6
+NEW_RELIC_APPLICATION_ID=$7
+SLACK_WEBHOOK=$8
 
 PAYLOAD='{
   "channel": "#fansided-releases",
@@ -29,7 +27,7 @@ PAYLOAD='{
 	  "author_link": "'$AUTHOR_LINK'",
 	  "author_icon": "'$AUTHOR_ICON'",
 	  "title": "Released '$REPO_NAME' version '$TAG'",
-	  "title_link": "https://example.com",
+	  "title_link": "'$REPO_URL'",
 	  "text": "'$RELEASE_NOTES'",
 	  "footer": "Pagely Production Deployment",
 	  "footer_icon": "https:\/\/s3-us-west-2.amazonaws.com\/slack-files2\/avatars\/2016-03-15\/26963954738_9e0d7b2047b49f4121c9_68.png",
