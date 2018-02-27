@@ -3,14 +3,12 @@
 # Ex. bash .circleci/slack.sh
 
 REPO_NAME=$CIRCLE_PROJECT_USERNAME'/'$CIRCLE_PROJECT_REPONAME
-REPO_URL=$CIRCLE_REPOSITORY_URL
+REPO_URL="https://github.com/$CIRCLE_PROJECT_USERNAME'/'$CIRCLE_PROJECT_REPONAME"
 TAG=$CIRCLE_TAG
 AUTHOR_NAME=$CIRCLE_USERNAME
 AUTHOR_LINK="https://github.com/$CIRCLE_USERNAME"
 AUTHOR_ICON="https://github.com/$CIRCLE_USERNAME.png"
 RELEASE_NOTES=$(git log --format="%s" -n 1)
-
-echo $REPO_URL
 
 PAYLOAD='{
   "channel": "#fansided-releases",
